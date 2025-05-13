@@ -21,10 +21,10 @@ jobs:
     - name: Connect to VM and deploy
       run: |
         ssh -o StrictHostKeyChecking=no azureuser@20.169.107.15 << 'EOF'
-          cd /path/to/your/app
-          git pull origin main
-          docker build -t flask-app .
-          docker stop flask-app || true
-          docker rm flask-app || true
-          docker run -d -p 80:80 --name flask-app flask-app
+          cd ATV3-DATAOPS/app
+          sudo git pull origin main
+          sudo docker build -t flask-app .
+          sudo docker stop flask-app || true
+          sudo docker rm flask-app || true
+          sudo docker run -d -p 80:80 --name flask-app flask-app
         EOF
